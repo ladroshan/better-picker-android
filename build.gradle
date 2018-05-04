@@ -35,4 +35,9 @@ allprojects {
             endWithNewline()
         }
     }
+
+    // Gets rid of javadoc: error - Illegal package name:
+    tasks.withType(Javadoc).all {
+        enabled = false
+    }
 }
