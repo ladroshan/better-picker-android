@@ -162,13 +162,12 @@ class AmPmColumnAdapter(
     return preprocessed
   }
 }
+```
 
 In the constructor of `BaseColumnAdapter`, you pass a `pageCount`, `cellTextAppearance`,
 and `cellPadding`. The page count is 1 for AM/PM because there's only two obvious options.
 In the *date picker*, for an example, we pass 1000 for the page count of months because it
 effectively creates infinite scrolling. The base adapter will adapt to this automatically.
-
-```
 
 ### Picker
 
