@@ -19,7 +19,11 @@ import com.afollestad.betterpicker.getSpaceForText
 import com.afollestad.betterpicker.inflate
 import com.afollestad.betterpicker.setTextAppearanceCompat
 
-/** Provides a common base for pickers, e.g. date and time pickers. */
+/**
+ * Provides a common base for pickers, and hides logic that consuming apps don't need to care about.
+ *
+ * @author Aidan Follestad (afollestad)
+ */
 abstract class BasePicker(
   context: Context,
   attrs: AttributeSet
@@ -94,9 +98,10 @@ abstract class BasePicker(
     heightMeasureSpec: Int
   ) {
     val width = MeasureSpec.getSize(widthMeasureSpec)
-    // We want to show 3 rows on screen per column (variable columns)
+    // We want to show 3 rows on screen per column (variable columns).
     setMeasuredDimension(width, cellSize * 3)
     if (measuredWidth == 0 || didInit) {
+      // Not ready yet or already did initialization.
       return
     }
     didInit = true
@@ -149,7 +154,12 @@ abstract class BasePicker(
     addView(picker)
   }
 
-  /** Scrolls to a value in a specified column. */
+  /**
+   * Scrolls to a value in a specified column.
+   *
+   * @param columnIndex The column in which we want to select a value.
+   * @param value The value (row) we want to select in the column, NOT the index.
+   */
   @Suppress("UNCHECKED_CAST")
   fun <IT> selectValueInColumn(
     columnIndex: Int,
@@ -161,7 +171,11 @@ abstract class BasePicker(
     picker.scrollToPosition(position - 1)
   }
 
-  /** Gets the selected value for a specified column. */
+  /**
+   * Gets the selected value for a specified column.
+   *
+   * @param columnIndex The column for which we want to get the selected value.
+   */
   @Suppress("UNCHECKED_CAST")
   fun <IT> getSelectedValueInColumn(columnIndex: Int): IT {
     val picker = pickers[columnIndex]

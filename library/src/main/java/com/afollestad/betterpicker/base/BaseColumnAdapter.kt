@@ -9,15 +9,30 @@ import com.afollestad.betterpicker.base.BaseColumnAdapter.ViewHolder
 import com.afollestad.betterpicker.inflate
 import com.afollestad.betterpicker.setTextAppearanceCompat
 
-/** Based on DataAdapter from register-android. */
+/**
+ * The base class for all column adapters, housing common logic and things that consuming apps
+ * don't need to care about.
+ *
+ * @param pageCount The number of pages. Anymore more than one progresses towards infinite scrolling. Each page will duplicate the previous.
+ * @param cellTextAppearance The text appearance applied to the TextView of each cell.
+ * @param cellPadding The padding applied to all sides of the TextView of each cell.
+ *
+ * @author Aidan Follestad (afollestad)
+ */
 abstract class BaseColumnAdapter<IT>(
-  private val pageCount: Int,
+  private val pageCount: Int = 1,
   private val cellTextAppearance: Int,
   private val cellPadding: Int
 ) :
     RecyclerView.Adapter<ViewHolder>() {
 
   var data: MutableList<IT>? = null
+
+  init {
+    if (pageCount < 1) {
+      throw IllegalArgumentException("Page count cannot be less than 1!")
+    }
+  }
 
   /** We don't initialize this inline above, because subclasses aren't ready with locals at that point. */
   internal fun onReady() {
@@ -86,10 +101,13 @@ abstract class BaseColumnAdapter<IT>(
     for (i in forPosition..dataSize * pageCount step dataSize) cb(i + 1)
   }
 
+  /** A value representing the empty state of an item the adapter holds, e.g. a blank string or 0. */
   abstract fun emptyValue(): IT
 
+  /** The initial data that the adapter holds, only called once. */
   abstract fun initialData(): MutableList<IT>
 
+  /** Transforms an adapter item to be displayed in the UI. */
   abstract fun displayValue(preprocessed: IT): String
 
   class ViewHolder(

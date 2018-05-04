@@ -2,17 +2,23 @@ package com.afollestad.betterpicker.adapters
 
 import com.afollestad.betterpicker.base.BasePicker
 import com.afollestad.betterpicker.base.BaseColumnAdapter
+import com.afollestad.betterpicker.base.BasePicker.Companion
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-/** This adapter manages a list of months in a year. ¬*/
+/**
+ * This adapter manages a list of months in a year.
+ *
+ * @author Aidan Follestad (afollestad)
+ */
 internal class MonthColumnAdapter(
-  pageCount: Int = BasePicker.INFINITE_SCROLL_PAGE_COUNT,
   cellTextAppearance: Int,
   cellPadding: Int
 ) :
-    BaseColumnAdapter<String>(pageCount, cellTextAppearance, cellPadding) {
+    BaseColumnAdapter<String>(
+        BasePicker.INFINITE_SCROLL_PAGE_COUNT, cellTextAppearance, cellPadding
+    ) {
 
   override fun initialData(): MutableList<String> {
     val monthDateFormat = SimpleDateFormat("MMM", Locale.getDefault())

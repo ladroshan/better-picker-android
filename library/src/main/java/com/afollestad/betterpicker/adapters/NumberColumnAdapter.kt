@@ -6,12 +6,19 @@ import java.lang.String.format
 import java.util.Locale
 
 /**
- * Based on DataAdapter from register-android, I did not originally write this class.
- *
  * This adapter manages a list of numbers, and allows the max to be updated dynamically.
+ *
+ * @param pageCount The number of pages. Anymore more than one progresses towards infinite scrolling. Each page will duplicate the previous.
+ * @param min The number that appears at the top of the list.
+ * @param max The number that appears at the bottom of the list.
+ * @param pad Whether or not to pad the numbers. For an example, "1" becomes "01".
+ * @param cellTextAppearance The text appearance applied to the TextView of each cell.
+ * @param cellPadding The padding applied to all sides of the TextView of each cell.
+ *
+ * @author Aidan Follestad (afollestad)
  */
-internal class NumberColumnAdapter(
-  private val pageCount: Int = BasePicker.INFINITE_SCROLL_PAGE_COUNT,
+class NumberColumnAdapter(
+  pageCount: Int = BasePicker.INFINITE_SCROLL_PAGE_COUNT,
   private val min: Int = 1,
   private val max: Int,
   private val pad: Boolean = false,

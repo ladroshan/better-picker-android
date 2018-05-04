@@ -2,7 +2,11 @@ package com.afollestad.betterpicker.adapters
 
 import com.afollestad.betterpicker.base.BaseColumnAdapter
 
-/** This adapter manages a simple list of "AM" and "PM". ¬*/
+/**
+ * This adapter manages a simple list of "AM" and "PM".
+ *
+ * @author Aidan Follestad (afollestad)
+ */
 internal class AmPmColumnAdapter(
   cellTextAppearance: Int,
   cellPadding: Int
