@@ -1,6 +1,8 @@
 package com.afollestad.betterpicker
 
 import android.content.Context
+import android.graphics.Color
+import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import com.afollestad.betterpicker.adapters.MonthColumnAdapter
 import com.afollestad.betterpicker.adapters.NumberColumnAdapter
@@ -22,8 +24,22 @@ class DatePicker(
   }
 
   private val currentDate = Calendar.getInstance()
-  private val monthDateFormat = SimpleDateFormat("MMM", Locale.getDefault())
+  private val monthDateFormat: SimpleDateFormat
   private lateinit var daysOfMonthAdapter: NumberColumnAdapter
+
+  init {
+    val attributesArray = context.obtainStyledAttributes(attrs, R.styleable.BasePicker)
+    try {
+      var pickerMonthFormat =
+        attributesArray.getString(R.styleable.DatePicker_pickerMonthFormat)
+      if (pickerMonthFormat == null) {
+        pickerMonthFormat = "MMM"
+      }
+      this.monthDateFormat = SimpleDateFormat(pickerMonthFormat, Locale.getDefault())
+    } finally {
+      attributesArray.recycle()
+    }
+  }
 
   override fun onShouldAddColumns() {
     addPickerColumn(

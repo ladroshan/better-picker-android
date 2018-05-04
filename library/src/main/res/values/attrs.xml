@@ -2,12 +2,16 @@
 <resources>
 
   <declare-styleable name="BasePicker">
-    <attr name="overlayBackground" format="color"/>
-    <attr name="overlayOpacity" format="float"/>
-    <attr name="dividerColor" format="color"/>
-    <attr name="dividerHeight" format="dimension"/>
-    <attr name="cellTextAppearance" format="reference"/>
-    <attr name="cellPadding" format="dimension"/>
+    <attr name="pickerOverlayBackground" format="color"/>
+    <attr name="pickerOverlayOpacity" format="float"/>
+    <attr name="pickerDividerColor" format="color"/>
+    <attr name="pickerDividerHeight" format="dimension"/>
+    <attr name="pickerCellTextAppearance" format="reference"/>
+    <attr name="pickerCellPadding" format="dimension"/>
+  </declare-styleable>
+
+  <declare-styleable name="DatePicker">
+    <attr name="pickerMonthFormat" format="string"/>
   </declare-styleable>
 
 </resources>

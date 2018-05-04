@@ -49,32 +49,32 @@ abstract class BasePicker(
     try {
       overlayBackground =
           attributesArray.getColor(
-              R.styleable.BasePicker_overlayBackground, Color.BLACK
+              R.styleable.BasePicker_pickerOverlayBackground, Color.BLACK
           )
       overlayOpacity =
           attributesArray.getFloat(
-              R.styleable.BasePicker_overlayOpacity, 0.8f
+              R.styleable.BasePicker_pickerOverlayOpacity, 0.8f
           )
       dividerColor =
           attributesArray.getColor(
-              R.styleable.BasePicker_overlayOpacity,
+              R.styleable.BasePicker_pickerOverlayOpacity,
               ContextCompat.getColor(
                   context,
                   R.color.default_gray
               )
           )
       dividerHeight = attributesArray.getDimension(
-          R.styleable.BasePicker_dividerHeight,
+          R.styleable.BasePicker_pickerDividerHeight,
           resources.getDimension(
               R.dimen.default_divider_height
           )
       )
       cellTextAppearance =
           attributesArray.getResourceId(
-              R.styleable.BasePicker_cellTextAppearance, R.style.DefaultItemTextAppearance
+              R.styleable.BasePicker_pickerCellTextAppearance, R.style.DefaultItemTextAppearance
           )
       cellPadding = attributesArray.getDimensionPixelSize(
-          R.styleable.BasePicker_cellPadding,
+          R.styleable.BasePicker_pickerCellPadding,
           resources.getDimensionPixelSize(R.dimen.default_picker_item_padding)
       )
     } finally {
@@ -114,8 +114,8 @@ abstract class BasePicker(
   }
 
   /**
-   * Called when inheriting classes should add their pickers with [addPickerColumn]. At this point
-   * the base picker will have been measured so pickers can be successfully added.
+   * Called when inheriting classes should add their columns with [addPickerColumn]. At this point
+   * the base picker will have been measured so columns can be successfully added.
    */
   abstract fun onShouldAddColumns()
 
@@ -138,9 +138,10 @@ abstract class BasePicker(
     adapter: BaseColumnAdapter<*>,
     selectionChange: (() -> (Unit))? = null
   ) {
-    if (measuredWidth == 0) {
-      // Not ready
-      return
+    if (!didInit) {
+      throw IllegalStateException(
+          "Cannot use addPickerColumn until onReadyForInitialization() is invoked."
+      )
     }
     val picker = createRecyclerView(selectionChange)
     picker.adapter = adapter
