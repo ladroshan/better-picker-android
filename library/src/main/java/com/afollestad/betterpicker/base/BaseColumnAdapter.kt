@@ -12,8 +12,8 @@ import com.afollestad.betterpicker.setTextAppearanceCompat
 /** Based on DataAdapter from register-android. */
 abstract class BaseColumnAdapter<IT>(
   private val pageCount: Int,
-  val cellTextAppearance: Int,
-  val cellPadding: Int
+  private val cellTextAppearance: Int,
+  private val cellPadding: Int
 ) :
     RecyclerView.Adapter<ViewHolder>() {
 
@@ -65,6 +65,25 @@ abstract class BaseColumnAdapter<IT>(
     }
     val index = (position - 1) % data!!.size
     return data!![index]
+  }
+
+  /**
+   * Gets all alias positions in an "infinite scroll" data set. For an example:
+   *
+   * data           =  [ "1", "2", "3, "4", "5" ]
+   * pageCount      =  5
+   * forPosition    =  1
+   * aliasPositions =  [ 1, 6, 11, 16, 21 ]
+   *
+   * @param cb A callback that will receive each alias position one after another.
+   */
+  fun aliasPositions(
+    forPosition: Int,
+    cb: (Int) -> (Unit)
+  ) {
+    if (data == null) return
+    val dataSize = data!!.size
+    for (i in forPosition..dataSize * pageCount step dataSize) cb(i + 1)
   }
 
   abstract fun emptyValue(): IT

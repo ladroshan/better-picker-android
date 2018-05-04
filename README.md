@@ -29,7 +29,7 @@ extensible. This project aims to help fix that and make implementing pickers eas
 ```gradle
 dependencies {
   ...
-  implementation 'com.afollestad:betterpicker:0.1.0'
+  implementation 'com.afollestad:betterpicker:0.1.1'
 }
 ```
 
