@@ -1,5 +1,7 @@
 # Better Pickers for Android
 
+[![Build Status](https://travis-ci.org/afollestad/better-picker-android.svg)](https://travis-ci.org/afollestad/better-picker-android)
+
 <img src="https://raw.githubusercontent.com/afollestad/better-picker-android/master/art/showcase.png" width="250" />
 
 ---
