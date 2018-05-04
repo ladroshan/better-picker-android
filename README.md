@@ -8,6 +8,16 @@ Welcome! `NumberPicker`'s and views that use it (like `DatePicker`) can be stubb
 They are not very responsive, changing size requires decimal scales, and they're not terribly 
 extensible. This project aims to help fix that and make implementing pickers easy and pleasant. 
 
+1. [Time Picker](https://github.com/afollestad/better-picker-android#time-picker)
+  1. [Basics](https://github.com/afollestad/better-picker-android#basics)
+  2. [Styling](https://github.com/afollestad/better-picker-android#styling)
+2. [Date Picker](https://github.com/afollestad/better-picker-android#date-picker)
+  1. [Basics](https://github.com/afollestad/better-picker-android#basics-1)
+  2. [Styling](https://github.com/afollestad/better-picker-android#styling-1)
+3. [Custom Pickers](https://github.com/afollestad/better-picker-android#custom-pickers)
+  1. [Adapter](https://github.com/afollestad/better-picker-android#adapter)
+  2. [Picker](https://github.com/afollestad/better-picker-android#picker)
+
 ---
 
 # Time Picker
@@ -95,7 +105,7 @@ for an example, if the month was July, "MM" would render "07", "MMM" would rende
 would render "July". The default is "MMM".
 
 Again, for `pickerCellTextAppearance`, you pass a basic style such as this:
-       
+
 ```xml
 <style name="DefaultItemTextAppearance">
    <item name="android:textColor">@color/default_white</item>
