@@ -1,6 +1,7 @@
 # Better Pickers for Android
 
 [![Build Status](https://travis-ci.org/afollestad/better-picker-android.svg)](https://travis-ci.org/afollestad/better-picker-android)
+[ ![Download](https://api.bintray.com/packages/drummer-aidan/maven/betterpicker/images/download.svg) ](https://bintray.com/drummer-aidan/maven/betterpicker/_latestVersion)
 
 <img src="https://raw.githubusercontent.com/afollestad/better-picker-android/master/art/showcase.png" width="250" />
 
