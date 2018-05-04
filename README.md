@@ -127,7 +127,7 @@ A column is really just a `RecyclerView` that snaps to positions while scrolling
 Take the `AmPmColumnAdapter` class as an example of an adapter. Notice it inherits from `BaseColumnAdapter`,
 and specifies that it holds `String` objects.
 
-```java
+```kotlin
 class AmPmColumnAdapter(
   cellTextAppearance: Int,
   cellPadding: Int
@@ -158,7 +158,7 @@ class AmPmColumnAdapter(
 Since we show the `AmPmColumnAdapter`, take the `TimePicker` as a sample of a picker. Notice it
 inherits from `BasePicker`.
 
-```java
+```kotlin
 class TimePicker(
   context: Context,
   attrs: AttributeSet
