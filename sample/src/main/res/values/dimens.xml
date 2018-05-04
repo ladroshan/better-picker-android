@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="content_vertical_padding">16dp</dimen>
+  <dimen name="content_horizontal_padding">32dp</dimen>
+  <dimen name="title_text_size">24sp</dimen>
+  <dimen name="button_text_size">18sp</dimen>
+</resources>

@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.afollestad.betterpicker.R.layout
 import com.afollestad.betterpicker.base.BaseColumnAdapter.ViewHolder
+import com.afollestad.betterpicker.inflate
+import com.afollestad.betterpicker.setTextAppearanceCompat
 
 /** Based on DataAdapter from register-android. */
 abstract class BaseColumnAdapter<IT>(
@@ -26,9 +28,8 @@ abstract class BaseColumnAdapter<IT>(
     parent: ViewGroup,
     viewType: Int
   ): ViewHolder {
-    val view = LayoutInflater.from(parent.context)
-        .inflate(layout.picker_item, parent, false) as TextView
-    view.setTextAppearance(parent.context, cellTextAppearance)
+    val view: TextView = parent.inflate(layout.picker_item, parent)
+    view.setTextAppearanceCompat(cellTextAppearance)
     view.setPadding(cellPadding, cellPadding, cellPadding, cellPadding)
     return ViewHolder(view)
   }

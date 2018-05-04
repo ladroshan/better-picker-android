@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.btn_show_selected_date
 import kotlinx.android.synthetic.main.activity_main.btn_show_selected_time
-import kotlinx.android.synthetic.main.activity_main.date_picker
-import kotlinx.android.synthetic.main.activity_main.time_picker
+import kotlinx.android.synthetic.main.include_date_picker.date_picker
+import kotlinx.android.synthetic.main.include_time_picker.time_picker
 import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
 

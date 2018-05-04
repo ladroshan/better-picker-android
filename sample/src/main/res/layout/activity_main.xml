@@ -12,59 +12,51 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      android:paddingTop="16dp"
-      android:paddingBottom="16dp"
-      android:paddingLeft="24dp"
-      android:paddingRight="24dp"
+      android:paddingTop="@dimen/content_vertical_padding"
+      android:paddingBottom="@dimen/content_vertical_padding"
+      android:paddingLeft="@dimen/content_horizontal_padding"
+      android:paddingRight="@dimen/content_horizontal_padding"
       >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Time"
-        android:textSize="24sp"
-        android:layout_marginBottom="12dp"
+        android:text="@string/select_time"
+        android:textSize="@dimen/title_text_size"
+        android:layout_marginBottom="@dimen/content_horizontal_padding"
         android:textColor="@android:color/white"
         android:fontFamily="sans-serif-medium"
         />
 
-    <com.afollestad.betterpicker.TimePicker
-        android:id="@+id/time_picker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+    <include layout="@layout/include_time_picker"/>
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_show_selected_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="What's the selected time?"
+        android:text="@string/what_s_the_selected_time"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Date"
-        android:textSize="24sp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="12dp"
+        android:text="@string/select_date"
+        android:textSize="@dimen/title_text_size"
+        android:layout_marginTop="@dimen/content_vertical_padding"
+        android:layout_marginBottom="@dimen/content_horizontal_padding"
         android:textColor="@android:color/white"
         android:fontFamily="sans-serif-medium"
         />
 
-    <com.afollestad.betterpicker.DatePicker
-        android:id="@+id/date_picker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+    <include layout="@layout/include_date_picker"/>
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_show_selected_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="What's the selected date?"
+        android:text="@string/what_s_the_selected_date"
         />
 
   </LinearLayout>
