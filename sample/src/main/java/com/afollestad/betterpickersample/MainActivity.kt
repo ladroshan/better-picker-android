@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.include_date_picker.date_picker
 import kotlinx.android.synthetic.main.include_time_picker.time_picker
 import java.text.DateFormat
 import java.text.SimpleDateFormat
+import java.util.GregorianCalendar
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,5 +32,12 @@ class MainActivity : AppCompatActivity() {
       Toast.makeText(applicationContext, dateFormat.format(selectedDate), Toast.LENGTH_LONG)
           .show()
     }
+
+    val time = GregorianCalendar(1995, 7, 28, 3, 15, 30)
+    time_picker.setCurrentTime(time)
+    time_picker.getTime()
+
+    val date = GregorianCalendar(1995, 7, 28)
+    date_picker.setCurrentDate(date)
   }
 }

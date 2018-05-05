@@ -60,11 +60,16 @@ class TimePicker(
   }
 
   /**
-   * Sets the current time, doesn't immediately reflect in the UI unless this is called before the
-   * view is attached to the window.
+   * Sets the current time.
+   *
+   * @param invalidateNow Whether or not the UI should be immediately notified of this change. Only needed if this method is called after the window attaches.
    */
-  fun setCurrentTime(calendar: Calendar) {
+  fun setCurrentTime(
+    calendar: Calendar,
+    invalidateNow: Boolean = false
+  ) {
     currentTime.time = calendar.time
+    if (invalidateNow) setDisplayedTime()
   }
 
   /** @return currently selected time */

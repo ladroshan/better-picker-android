@@ -15,9 +15,11 @@ extensible. This project aims to help fix that and make implementing pickers eas
 2. [Time Picker](https://github.com/afollestad/better-picker-android#time-picker)
     1. [Basics](https://github.com/afollestad/better-picker-android#basics)
     2. [Configuration](https://github.com/afollestad/better-picker-android#configuration)
+    3. [Interaction](https://github.com/afollestad/better-picker-android#interaction)
 3. [Date Picker](https://github.com/afollestad/better-picker-android#date-picker)
     1. [Basics](https://github.com/afollestad/better-picker-android#basics-1)
     2. [Configuration](https://github.com/afollestad/better-picker-android#configuration-1)
+    3. [Interaction](https://github.com/afollestad/better-picker-android#interaction-1)
 4. [Custom Pickers](https://github.com/afollestad/better-picker-android#custom-pickers)
     1. [Column Adapters](https://github.com/afollestad/better-picker-android#column-adapters)
     2. [Picker Views](https://github.com/afollestad/better-picker-android#picker-views)
@@ -33,7 +35,7 @@ extensible. This project aims to help fix that and make implementing pickers eas
 ```gradle
 dependencies {
   ...
-  implementation 'com.afollestad:betterpicker:0.1.2'
+  implementation 'com.afollestad:betterpicker:0.1.3'
 }
 ```
 
@@ -80,6 +82,22 @@ For `pickerCellTextAppearance`, you pass a basic style such as this:
     <item name="android:textColor">@color/default_white</item>
     <item name="android:textSize">@dimen/default_text_size</item>
 </style>
+```
+
+### Interaction
+
+The `TimePicker` has a few simple methods.
+
+```kotlin
+val newTime = GregorianCalendar(1995, 7, 28, 3, 15, 30)
+// This updates the displayed and stored time in the picker.
+// invalidateNow is an optional parameter, defaulting to false.
+// Only need to pass true if you're calling this after the window is attached.
+timePicker.setCurrentTime(newTime, invalidateNow = true)
+
+// Returns a Calendar instance.
+// You should only be concerned with the stored hour, minute, and AM/PM.
+val displayedTime = timePicker.getTime()
 ```
 
 ---
@@ -131,6 +149,22 @@ The available attributes are mostly the same, with the addition of `pickerMonthF
 [standard date format value](https://developer.android.com/reference/java/text/SimpleDateFormat) --
 for an example, if the month was July, "MM" would render "07", "MMM" would render "Jul", and "MMMM"
 would render "July". The default is "MMM".
+
+### Interaction
+
+Like the `TimePicker`, there are a few simple methods in the `DatePicker`:
+
+```kotlin
+val newDate = GregorianCalendar(1995, 7, 28)
+// This updates the displayed and stored date in the picker.
+// invalidateNow is an optional parameter, defaulting to false.
+// Only need to pass true if you're calling this after the window is attached.
+datePicker.setCurrentDate(newDate, invalidateNow = true)
+
+// Returns a Calendar instance.
+// You should only be concerned with the stored month, day of month, and year.
+val displayedDate = datePicker.getDate()
+```
 
 ---
 

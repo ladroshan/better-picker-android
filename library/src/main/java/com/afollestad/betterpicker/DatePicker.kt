@@ -76,11 +76,16 @@ class DatePicker(
   }
 
   /**
-   * Sets the current date, doesn't immediately reflect in the UI unless this is called before the
-   * view is attached to the window.
+   * Sets the current date.
+   *
+   * @param invalidateNow Whether or not the UI should be immediately notified of this change. Only needed if this method is called after the window attaches.
    */
-  fun setCurrentDate(calendar: Calendar) {
+  fun setCurrentDate(
+    calendar: Calendar,
+    invalidateNow: Boolean = false
+  ) {
     currentDate.time = calendar.time
+    if (invalidateNow) setDisplayedDate()
   }
 
   /** @return currently selected time */

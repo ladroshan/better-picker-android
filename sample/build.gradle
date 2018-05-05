@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
   compileSdkVersion versions.compileSdk
   defaultConfig {
-    applicationId "com.afollestad.better_picker"
+    applicationId "com.afollestad.betterpicker"
     minSdkVersion versions.minSdk
     targetSdkVersion versions.compileSdk
     versionCode versions.publishVersionCode
