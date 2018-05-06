@@ -389,7 +389,7 @@ those 1000 indices into the given inline-function/lambda.
 
 ```kotlin
 // Indices:      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21
-// Looped data:  1, 2, 3, 4, 5, 1, 2, 3, 4,  5,  1,  2,  3,  4,  5,  1,  2,  3,  4,  5,  6
+// Looped data:  1, 2, 3, 4, 5, 1, 2, 3, 4,  5,  1,  2,  3,  4,  5,  1,  2,  3,  4,  5,  1
 aliasPositions(1, { print("$it ") })
-// The above would print 2, 7, 12, 17, etc. Notice these indices all contain the number 2.
+// The above would print 2, 7, 12, 17, etc. Notice these indices all point to a value of 2 in the data set. 
 ```
